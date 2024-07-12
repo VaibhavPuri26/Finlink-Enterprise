@@ -37,15 +37,14 @@ export default function Home() {
           </h1>
           <div className="text-gray-500 text-xs sm:text-sm">
             <br />
-            Discover the epitome of automotive excellence at our showroom, where
-            innovation and style unite to redefine your driving experience.
+            We don’t sell cars, we sell happiness on wheels 😊
             <br />
           </div>
           <Link
             className="text-xs sm:text-sm text-cyan-500 font-bold hover:underline"
             to={"/search"}
           >
-            Let's get started now...
+            Let's get you started now...
           </Link>
         </div>
         <div className="w-full sm:w-1/2">

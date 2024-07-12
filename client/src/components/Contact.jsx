@@ -26,7 +26,7 @@ export default function Conctact({ listing }) {
       {seller && (
         <div className="flex flex-col gap-2">
          <p>
-  Contact <span className="font-semibold">vaibhav.puri26@gmail.com</span> for{" "}
+  Contact <span className="font-semibold">Prathampuri81@gmail.com</span> for{" "}
   <span className="font-semibold">{listing.name.toLowerCase()}</span>
 </p>
 <p>
