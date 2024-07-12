@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { getToken } from "../utils/getToken"
 export default function Conctact({ listing }) {
   const [seller, setSeller] = useState(null);
   const [message, setMessage] = useState("");
@@ -12,7 +12,7 @@ export default function Conctact({ listing }) {
   useEffect(() => {
     const fetchSeller = async () => {
       try {
-        const res = await fetch(`https://finlink-enterprise.onrender.com/api/user/${listing.userRef}`, {credentials: 'include'});
+        const res = await fetch(`https://finlink-enterprise.onrender.com/api/user/${listing.userRef}`, {headers: {'Authorization': `Bearer ${getToken()}`}});
         const data = await res.json();
         setSeller(data);
       } catch {

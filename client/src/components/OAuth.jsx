@@ -3,7 +3,7 @@ import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { signInSuccess } from "../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
-
+import { getToken , setToken } from "../utils/getToken"
 export default function OAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,14 +18,17 @@ export default function OAuth() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${getToken()}`
         },
         body: JSON.stringify({
           name: result.user.displayName,
           email: result.user.email,
           photo: result.user.photoURL,
         }),
+        credentials : 'include'
       });
       const data = await res.json();
+      setToken(data.token)
       dispatch(signInSuccess(data));
       navigate("/");
     } catch (error) {

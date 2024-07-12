@@ -7,7 +7,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import { FaShare, FaGasPump, FaRupeeSign } from "react-icons/fa";
 import Contact from "../components/Contact";
-
+import { getToken } from "../utils/getToken"
 export default function Listing() {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
@@ -22,7 +22,7 @@ export default function Listing() {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`https://finlink-enterprise.onrender.com/api/listing/get/${params.listingId}`);
+        const res = await fetch(`https://finlink-enterprise.onrender.com/api/listing/get/${params.listingId}`, {headers : {'Authorization': `Bearer ${getToken()}`}});
         const data = await res.json();
         if (data.success === false) {
           setError(true);

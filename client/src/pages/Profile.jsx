@@ -21,7 +21,7 @@ import {
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
-
+import { getToken } from "../utils/getToken"
 export default function Profile() {
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -76,6 +76,7 @@ export default function Profile() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${getToken()}`
         },
         body: JSON.stringify(formData),
       });
@@ -97,6 +98,7 @@ export default function Profile() {
       dispatch(deleteUserStart());
       const res = await fetch(`https://finlink-enterprise.onrender.com/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
+        headers : {'Authorization': `Bearer ${getToken()}`}
       });
       const data = await res.json();
       if (data.success == false) {
@@ -112,7 +114,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch("https://finlink-enterprise.onrender.com/api/auth/signout");
+      const res = await fetch("https://finlink-enterprise.onrender.com/api/auth/signout" , {headers : {'Authorization': `Bearer ${getToken()}`}});
       const data = await res.json();
       if (data.success == false) {
         dispatch(signOutUserFailure(data.message));
@@ -128,7 +130,7 @@ export default function Profile() {
     try {
       setShowListingsError(false);
       const res = await fetch(`https://finlink-enterprise.onrender.com/api/user/listings/${currentUser._id}`,{
-        credentials: 'include'
+        headers: {'Authorization': `Bearer ${getToken()}`}
       });
       const data = await res.json();
       if (data.success === false) {
@@ -145,6 +147,7 @@ export default function Profile() {
     try {
       const res = await fetch(`https://finlink-enterprise.onrender.com/api/listing/delete/${listingId}`, {
         method: "DELETE",
+        headers : {'Authorization': `Bearer ${getToken()}`}
       });
       const data = await res.json();
       if (data.success === false) {

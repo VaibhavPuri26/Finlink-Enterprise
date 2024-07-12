@@ -8,7 +8,7 @@ import {
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { getToken } from "../utils/getToken"
 export default function CreateListing() {
   const { currentUser } = useSelector((state) => state.user);
   const [files, setFiles] = useState([]);
@@ -35,7 +35,7 @@ export default function CreateListing() {
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.listingId;
-      const res = await fetch(`https://finlink-enterprise.onrender.com/api/listing/get/${listingId}`);
+      const res = await fetch(`https://finlink-enterprise.onrender.com/api/listing/get/${listingId}` , {headers:{'Authorization': `Bearer ${getToken()}`}});
       const data = await res.json();
       if(data.success ===false){
         log(data.message);
@@ -140,6 +140,7 @@ export default function CreateListing() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${getToken()}`
         },
         body: JSON.stringify({
           ...formData,

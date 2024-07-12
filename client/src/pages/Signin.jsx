@@ -7,7 +7,7 @@ import {
   signInFailure,
 } from "../redux/user/userSlice";
 import OAuth from "../components/OAuth";
-
+import { getToken , setToken } from "../utils/getToken"
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
@@ -27,10 +27,13 @@ export default function SignIn() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${getToken()}`
         },
         body: JSON.stringify(formData),
+        credentials : 'include'
       });
       const data = await res.json();
+      setToken(data.token)
       if (data.success === false) {
         dispatch(signInFailure(data.message));
         return;

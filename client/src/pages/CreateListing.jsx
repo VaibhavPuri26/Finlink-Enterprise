@@ -8,7 +8,7 @@ import {
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { getToken } from "../utils/getToken"
 export default function CreateListing() {
   const { currentUser } = useSelector((state) => state.user);
   const [files, setFiles] = useState([]);
@@ -125,6 +125,7 @@ export default function CreateListing() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${getToken()}`
         },
         body: JSON.stringify({
           ...formData,

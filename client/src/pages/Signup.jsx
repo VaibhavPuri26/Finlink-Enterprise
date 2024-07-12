@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
-
+import { getToken } from "../utils/getToken"
 export default function Signup() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
@@ -21,6 +21,7 @@ export default function Signup() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${getToken()}`
         },
         body: JSON.stringify(formData),
       });

@@ -5,7 +5,7 @@ import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import { useEffect, useState } from "react";
 import ferrari from "../assets/ferrari.png";
-
+import { getToken } from "../utils/getToken"
 import ListingItems from "../components/ListingItems";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const fetchAllListings = async () => {
       try {
-        const res = await fetch("https://finlink-enterprise.onrender.com/api/listing/get?fuelType=all&limit=6");
+        const res = await fetch("https://finlink-enterprise.onrender.com/api/listing/get?fuelType=all&limit=6",{headers : {'Authorization': `Bearer ${getToken()}`}});
         const data = await res.json();
         setAllListings(data);
       } catch (error) {
