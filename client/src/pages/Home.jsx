@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const fetchAllListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?fuelType=all&limit=6");
+        const res = await fetch("https://finlink-enterprise.onrender.com/api/listing/get?fuelType=all&limit=6");
         const data = await res.json();
         setAllListings(data);
       } catch (error) {

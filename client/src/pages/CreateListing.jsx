@@ -121,7 +121,7 @@ export default function CreateListing() {
         return setError("You must upload at least 1 image");
       setLoading(true);
       setError(false);
-      const res = await fetch("/api/listing/create", {
+      const res = await fetch("https://finlink-enterprise.onrender.com/api/listing/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

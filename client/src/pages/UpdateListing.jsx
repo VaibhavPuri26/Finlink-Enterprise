@@ -35,7 +35,7 @@ export default function CreateListing() {
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.listingId;
-      const res = await fetch(`/api/listing/get/${listingId}`);
+      const res = await fetch(`https://finlink-enterprise.onrender.com/api/listing/get/${listingId}`);
       const data = await res.json();
       if(data.success ===false){
         log(data.message);
@@ -136,7 +136,7 @@ export default function CreateListing() {
         return setError("You must upload at least 1 image");
       setLoading(true);
       setError(false);
-      const res = await fetch(`/api/listing/update/${params.listingId}`, {
+      const res = await fetch(`https://finlink-enterprise.onrender.com/api/listing/update/${params.listingId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
