@@ -12,7 +12,7 @@ export default function Conctact({ listing }) {
   useEffect(() => {
     const fetchSeller = async () => {
       try {
-        const res = await fetch(`https://finlink-enterprise.onrender.com/api/user/${listing.userRef}`);
+        const res = await fetch(`https://finlink-enterprise.onrender.com/api/user/${listing.userRef}`, {credentials: 'include'});
         const data = await res.json();
         setSeller(data);
       } catch {
