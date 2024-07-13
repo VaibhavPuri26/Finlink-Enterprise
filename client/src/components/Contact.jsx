@@ -37,7 +37,7 @@ export default function Conctact({ listing }) {
     rel="noopener noreferrer"
     className="font-semibold"
   >
-    {9818102234}
+    {9818102334}
   </a>
 </p>
 
