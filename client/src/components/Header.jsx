@@ -2,8 +2,8 @@ import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import InstagramIcon from '../assets/Instagram icon.png'; 
-import Companylogo from '../assets/Finlink Favicon.jpeg';
+import Portfolio from '../assets/Portfolio.png' 
+import Companylogo from '../assets/Car.png';
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -33,8 +33,8 @@ export default function Header() {
           <img src={Companylogo} alt="Company Logo" className="h-10 w-10 rounded-full mr-3" />
           <Link to="/" className="flex items-center">
             <h1 className="font-bold text-xl">
-              <span className="text-black">Finlink</span>
-              <span className="text-blue-500">Enterprise</span>
+              <span className="text-black">Vaibhav</span>
+              <span className="text-blue-500">Puri</span>
             </h1>
           </Link>
         </div>
@@ -57,11 +57,11 @@ export default function Header() {
           <Link to="/about">
             <li className="hidden sm:inline text-black">About</li>
           </Link>
-          <a href="https://www.instagram.com/finlink_enterprise_" target="_blank" rel="noopener noreferrer">
+          <a href="https://vaibhav-puri-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
             <li>
               <img
-                src={InstagramIcon}
-                alt="Instagram"
+                src={Portfolio}
+                alt="Vaibhav Puri Portfolio"
                 className="h-7 w-7 rounded-full"
               />
             </li>

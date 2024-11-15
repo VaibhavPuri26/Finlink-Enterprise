@@ -26,18 +26,18 @@ export default function Conctact({ listing }) {
       {seller && (
         <div className="flex flex-col gap-2">
          <p>
-  Contact <span className="font-semibold">Prathampuri81@gmail.com</span> for{" "}
+  Contact <span className="font-semibold">vaibhav.puri26@gmail.com</span> for{" "}
   <span className="font-semibold">{listing.name.toLowerCase()}</span>
 </p>
 <p>
   {"Message on WhatsApp : "}  
   <a 
-    href={`https://wa.me/${9818102334}?text=I am interested in ${listing.name.toLowerCase()}`} 
+    href={`https://wa.me/${9810436355}?text=I am interested in ${listing.name.toLowerCase()}`} 
     target="_blank" 
     rel="noopener noreferrer"
     className="font-semibold"
   >
-    {9818102334}
+    {9810436355}
   </a>
 </p>
 

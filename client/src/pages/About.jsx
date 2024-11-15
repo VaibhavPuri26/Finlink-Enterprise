@@ -2,10 +2,10 @@ export default function About() {
   return (
     <div className="py-20 px-4 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-4 text-blue-800">
-        About Finlink Enterprise
+        About Us
       </h1>
       <p className="mb-4 text-slate-700">
-        At Finlink Enterprise , we specialize in facilitating seamless
+        At this showroom , we specialize in facilitating seamless
         transactions for both used car sales and purchases. With a commitment to
         delivering exceptional service, we also offer comprehensive financing
         options for new cars to ensure our customers drive away with their dream

@@ -32,7 +32,7 @@ export default function CreateListing() {
   const [loading, setLoading] = useState(false);
   console.log(formData);
   const handleImageSubmit = (e) => {
-    if (files.length > 0 && files.length + formData.imageUrls.length <= 11) {
+    if (files.length > 0 && files.length + formData.imageUrls.length <= 10) {
       setUploading(true);
       setImageUploadError(false);
       const promises = [];
@@ -54,7 +54,7 @@ export default function CreateListing() {
           setUploading(false);
         });
     } else {
-      setImageUploadError("You can only upload 11 images per listing");
+      setImageUploadError("You can only upload 10 images per listing");
       setUploading(false);
     }
   };
