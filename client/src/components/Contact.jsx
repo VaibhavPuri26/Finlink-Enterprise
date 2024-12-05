@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getToken } from "../utils/getToken"
-export default function Conctact({ listing }) {
+export default function Contact({ listing }) {
   const [seller, setSeller] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -32,7 +32,7 @@ export default function Conctact({ listing }) {
 <p>
   {"Message on WhatsApp : "}  
   <a 
-    href={`https://wa.me/${9810436355}?text=I am interested in ${listing.name.toLowerCase()}`} 
+    href={`https://wa.me/${9818102334}?text=I am interested in ${listing.name.toLowerCase()}`} 
     target="_blank" 
     rel="noopener noreferrer"
     className="font-semibold"
