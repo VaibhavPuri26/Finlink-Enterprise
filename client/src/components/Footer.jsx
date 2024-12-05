@@ -8,7 +8,7 @@ function Footer() {
 `
   return (
     <Copyright>
-    &copy; 2024 Vaibhav Puri. All rights reserved.
+    &copy; 2024 Finlink Enterprise. All rights reserved.
     </Copyright>
   )
 }
